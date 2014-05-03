@@ -15,6 +15,8 @@ package hu.vizoli.examples.robotlegs2.modular.modules.logger.view
 		public function LogView() 
 		{
 			super();
+			
+			this.createChildren();
 		}
 		
 		/**

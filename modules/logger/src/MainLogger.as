@@ -6,6 +6,7 @@ package
 	import hu.vizoli.examples.robotlegs2.modular.modules.logger.config.MediatorConfig;
 	import hu.vizoli.examples.robotlegs2.modular.modules.logger.config.ModelConfig;
 	import hu.vizoli.examples.robotlegs2.modular.modules.logger.config.ModuleConfig;
+	import hu.vizoli.examples.robotlegs2.modular.modules.logger.view.LogView;
 	import robotlegs.bender.bundles.mvcs.MVCSBundle;
 	import robotlegs.bender.extensions.contextView.ContextView;
 	import robotlegs.bender.extensions.contextView.ContextViewExtension;
@@ -17,11 +18,11 @@ package
 	 * ...
 	 * @author vizoli
 	 */
-	public class Main extends Sprite 
+	public class MainLogger extends Sprite 
 	{
 		private var _context:IContext;
 		
-		public function Main( ):void 
+		public function MainLogger( ):void 
 		{
 			this.setupContext();
 			
@@ -54,6 +55,20 @@ package
 		private function init( e:Event = null ):void 
 		{
 			this.removeEventListener( Event.ADDED_TO_STAGE, this.init );
+			
+			this.createChildren();
+		}
+		
+		/**
+		 * Create children
+		 * 
+		 * @param	e
+		 */
+		private function createChildren( ):void 
+		{
+			trace("--- logger:createChildren")
+			var logView:LogView = new LogView();
+			this.addChild ( logView );
 		}
 		
 	}

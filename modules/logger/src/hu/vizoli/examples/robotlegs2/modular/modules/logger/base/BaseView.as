@@ -1,7 +1,7 @@
 package hu.vizoli.examples.robotlegs2.modular.modules.logger.base
 {
 	import flash.display.Sprite;
-	import hu.vizoli.examples.robotlegs2.modular.shell.base.interfaces.IBaseView;
+	import hu.vizoli.examples.robotlegs2.modular.modules.logger.base.interfaces.IBaseView;
 	
 	/**
 	 * BaseView
