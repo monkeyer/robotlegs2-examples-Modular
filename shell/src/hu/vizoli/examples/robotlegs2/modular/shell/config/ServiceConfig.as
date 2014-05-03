@@ -1,15 +1,16 @@
 package hu.vizoli.examples.robotlegs2.modular.shell.config 
 {
 	import hu.vizoli.examples.robotlegs2.modular.shell.model.ModuleModel;
+	import hu.vizoli.examples.robotlegs2.modular.shell.service.ModuleService;
 	import robotlegs.bender.framework.api.IConfig;
 	import robotlegs.bender.framework.api.IInjector;
 	
 	/**
-	 * Models config
+	 * Service config
 	 * 
 	 * @author vizoli
 	 */
-	public class ModelConfig implements IConfig
+	public class ServiceConfig implements IConfig
 	{
 		[Inject]
 		public var injector:IInjector;
@@ -25,7 +26,7 @@ package hu.vizoli.examples.robotlegs2.modular.shell.config
 		 */
 		public function configure():void
 		{
-			this.injector.map( ModuleModel ).asSingleton();
+			this.injector.map( ModuleService ).asSingleton();
 		}
 		
 	}

@@ -1,50 +1,55 @@
 package 
 {
 	import flash.display.Loader;
-	import flash.display.Sprite;
 	import flash.events.Event;
-	import flash.events.HTTPStatusEvent;
-	import flash.events.IEventDispatcher;
-	import flash.events.IOErrorEvent;
-	import flash.events.ProgressEvent;
-	import flash.net.URLLoader;
 	import flash.net.URLRequest;
 	import flash.system.ApplicationDomain;
 	import flash.system.LoaderContext;
+	import hu.vizoli.examples.robotlegs2.modular.shell.base.BaseMain;
 	import hu.vizoli.examples.robotlegs2.modular.shell.config.CommandConfig;
 	import hu.vizoli.examples.robotlegs2.modular.shell.config.MediatorConfig;
 	import hu.vizoli.examples.robotlegs2.modular.shell.config.ModelConfig;
 	import hu.vizoli.examples.robotlegs2.modular.shell.config.ModuleConfig;
+	import hu.vizoli.examples.robotlegs2.modular.shell.config.ServiceConfig;
+	import hu.vizoli.examples.robotlegs2.modular.shell.view.LayoutView;
 	import robotlegs.bender.bundles.mvcs.MVCSBundle;
 	import robotlegs.bender.extensions.contextView.ContextView;
 	import robotlegs.bender.extensions.contextView.ContextViewExtension;
 	import robotlegs.bender.extensions.modularity.ModularityExtension;
-	import robotlegs.bender.framework.api.IContext;
 	import robotlegs.bender.framework.impl.Context;
 	
 	/**
-	 * ...
-	 * @author vizoli
+	 * Robotlegs2 Example - Modular
+	 * Shell, this is the main project, it loads the modules.
+	 * 
+	 * @author vizoli ( Name: Zoltan Viski, Site: vizoli.hu, Github: https://github.com/zoltanviski )
 	 */
-	public class Main extends Sprite 
+	[ SWF( width='820', height='620', backgroundColor='0x444444', framerate='30' ) ]
+	public class Main extends BaseMain 
 	{
-		private var _context:IContext;
-		private var _loader:Loader;
-		private var _req:URLRequest;
+		private var _layoutView:LayoutView;
 		
 		public function Main( ):void 
 		{
-			this.setupContext();
 			
-			if ( this.stage ) this.init( );
-			else addEventListener( Event.ADDED_TO_STAGE, this.init );
 		}
 		
 		/**
-		 * Setup the context
+		 * @inheritDoc
 		 */
-		private function setupContext( ):void 
+		override public function createChildren():void
 		{
+			this._layoutView = new LayoutView();
+			this.addChild( this._layoutView );
+		}
+		
+		/**
+		 * @inheritDoc
+		 */
+		override protected function setupContext( ):void 
+		{
+			super.setupContext();
+			
 			this._context = new Context()
 				.install( 	MVCSBundle )
 				.install( 	ContextViewExtension )
@@ -53,42 +58,18 @@ package
 							MediatorConfig, 
 							CommandConfig, 
 							ModuleConfig,
+							ServiceConfig,
 							new ContextView( this ) 
 						  );
 		}
 		
 		/**
-		 * Init
-		 * 
-		 * @param	e
+		 * @inheritDoc
 		 */
-		private function init( e:Event = null ):void 
+		override protected function init( e:Event = null ):void 
 		{
-			this.removeEventListener( Event.ADDED_TO_STAGE, this.init );
-			
-			this._loader = new Loader();
-			this._req = new URLRequest( "../../modules/logger/bin/Robotlegs2ExamplesModularLogger.swf" ); 
-			var ldrContext:LoaderContext = new LoaderContext( false, ApplicationDomain.currentDomain ); 
-			
-			configureListeners(  this._loader.contentLoaderInfo );
-			
-            this._loader.load( this._req );  
+			super.init(); 
 		}
-		
-		private function completeHandler( event:Event ):void 
-        { 
-			this.addChild( this._loader.contentLoaderInfo.content );
-			
-			this.dispatchEvent( new Event( "betoltve" ) );
-            //var myGreeter:Class = ApplicationDomain.currentDomain.getDefinition("Greeter") as Class; 
-            //var myGreeter:Greeter = Greeter(event.target.content); 
-            //var message:String = myGreeter.welcome("Tommy"); 
-            //trace(message); // Hello, Tommy 
-        } 
-		
-		 private function configureListeners(dispatcher:IEventDispatcher):void {
-            dispatcher.addEventListener(Event.COMPLETE, completeHandler);
-        }
 		
 	}
 	

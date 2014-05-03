@@ -1,5 +1,8 @@
 package hu.vizoli.examples.robotlegs2.modular.shell.config 
 {
+	import hu.vizoli.examples.robotlegs2.modular.shell.controlller.LoadModuleCommand;
+	import hu.vizoli.examples.robotlegs2.modular.shell.events.ModuleInitializationEvent;
+	import mx.events.ModuleEvent;
 	import robotlegs.bender.extensions.eventCommandMap.api.IEventCommandMap;
 	import robotlegs.bender.framework.api.IConfig;
 	
@@ -24,7 +27,7 @@ package hu.vizoli.examples.robotlegs2.modular.shell.config
 		 */
 		public function configure():void
 		{
-			//this.commandMap.map( GameEvent.INIT, GameEvent ).toCommand( InitGameCommand );
+			this.commandMap.map( ModuleInitializationEvent.LOGGER, ModuleInitializationEvent ).toCommand( LoadModuleCommand );
 		}
 		
 	}

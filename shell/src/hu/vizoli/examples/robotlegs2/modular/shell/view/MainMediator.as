@@ -2,14 +2,14 @@ package hu.vizoli.examples.robotlegs2.modular.shell.view
 {
 	import flash.events.Event;
 	import flash.events.KeyboardEvent;
-	import robotlegs.bender.bundles.mvcs.Mediator;
+	import hu.vizoli.examples.robotlegs2.modular.shell.base.BaseMediator;
 	
 	/**
 	 * MainMediator
 	 * 
 	 * @author vizoli
 	 */
-	public class MainMediator extends Mediator 
+	public class MainMediator extends BaseMediator 
 	{
 		[Inject]
 		public var view:Main;
@@ -25,7 +25,9 @@ package hu.vizoli.examples.robotlegs2.modular.shell.view
 		 */
 		override public function initialize():void
 		{
-			this.addViewListener( "betoltve", this.viewEventListeners );
+			this.view.createChildren();
+			
+			
 		}
 		
 		//--------------------------------------------------------------------------

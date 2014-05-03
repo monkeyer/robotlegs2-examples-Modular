@@ -18,7 +18,7 @@ package hu.vizoli.examples.robotlegs2.modular.modules.logger.config
 		 */
 		public function configure():void
 		{
-			this.moduleConnector.onDefaultChannel().receiveEvent( "shellE" );
+			this.moduleConnector..onChannel( "sh" ).receiveEvent( "shellE" );
 		}
 		
 	}
