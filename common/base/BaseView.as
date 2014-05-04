@@ -1,7 +1,7 @@
-package hu.vizoli.examples.robotlegs2.modular.shell.base
+package base
 {
+	import base.interfaces.IBaseView;
 	import flash.display.Sprite;
-	import hu.vizoli.examples.robotlegs2.modular.shell.base.interfaces.IBaseView;
 	
 	/**
 	 * BaseView

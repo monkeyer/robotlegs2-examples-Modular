@@ -1,15 +1,17 @@
-package hu.vizoli.examples.robotlegs2.modular.shell.events
+package hu.vizoli.examples.robotlegs2.modular.modules.logger.controlller.events
 {
 	import flash.events.Event;
 	
 	/**
-	 * ModuleInitializationEvent
+	 * AddLogCommandEvent
 	 * 
 	 * @author vizoli
 	 */
-	public class ModuleInitializationEvent extends Event
+	public class AddLogCommandEvent extends Event
 	{
-		public static const LOGGER:String = "LOGGER";
+		public static const LOG:String = "AddLogCommandEvent.LOG";
+		
+		public var message:String;
 		
 		//--------------------------------------------------------------------------
 		//
@@ -22,7 +24,7 @@ package hu.vizoli.examples.robotlegs2.modular.shell.events
 		 * 
 		 * @param 	type
 		 */
-		public function ModuleInitializationEvent( type:String )
+		public function AddLogCommandEvent( type:String )
 		{
 			super( type );
 		}
@@ -38,7 +40,8 @@ package hu.vizoli.examples.robotlegs2.modular.shell.events
 		 */
 		override public function clone( ):Event
 		{
-			var event:ModuleInitializationEvent = new ModuleInitializationEvent( type );
+			var event:AddLogCommandEvent = new AddLogCommandEvent( type );
+			event.message = message;
 			
 			return event;
 		}

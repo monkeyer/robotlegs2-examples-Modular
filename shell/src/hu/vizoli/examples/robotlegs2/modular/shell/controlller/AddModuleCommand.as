@@ -1,15 +1,18 @@
 package hu.vizoli.examples.robotlegs2.modular.shell.controlller 
 {
-	import flash.events.KeyboardEvent;
 	import hu.vizoli.examples.robotlegs2.modular.shell.base.BaseCommand;
+	import hu.vizoli.examples.robotlegs2.modular.shell.service.ModuleService;
 	
 	/**
-	 * InitApplicationCommand
+	 * AddModuleCommand
 	 * 
 	 * @author vizoli
 	 */
-	public class ShellCommand extends BaseCommand
+	public class AddModuleCommand extends BaseCommand
 	{
+		[Inject]
+		public var moduleService:ModuleService;
+		
 		//--------------------------------------------------------------------------
 		//
 		//  Overriden methods
@@ -17,13 +20,13 @@ package hu.vizoli.examples.robotlegs2.modular.shell.controlller
 		//--------------------------------------------------------------------------
 		
 		/**
-		 * Override the execute
+		 * @inheritDoc
 		 */
 		override public function execute():void
 		{
-			trace( "------------------- NAHAT 1" );
+			this.moduleService.load( "../../modules/logger/bin/Robotlegs2ExamplesModularLogger.swf" );
 		}
 
 	}
-	
+
 }

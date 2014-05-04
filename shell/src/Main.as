@@ -1,11 +1,11 @@
 package 
 {
+	import base.BaseMain;
 	import flash.display.Loader;
 	import flash.events.Event;
 	import flash.net.URLRequest;
 	import flash.system.ApplicationDomain;
 	import flash.system.LoaderContext;
-	import hu.vizoli.examples.robotlegs2.modular.shell.base.BaseMain;
 	import hu.vizoli.examples.robotlegs2.modular.shell.config.CommandConfig;
 	import hu.vizoli.examples.robotlegs2.modular.shell.config.MediatorConfig;
 	import hu.vizoli.examples.robotlegs2.modular.shell.config.ModelConfig;

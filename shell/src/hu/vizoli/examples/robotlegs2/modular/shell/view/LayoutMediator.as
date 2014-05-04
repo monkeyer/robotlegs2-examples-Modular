@@ -1,7 +1,9 @@
 package hu.vizoli.examples.robotlegs2.modular.shell.view 
 {
+	import base.BaseMediator;
+	import events.LogEvent;
+	import flash.display.DisplayObject;
 	import flash.events.Event;
-	import hu.vizoli.examples.robotlegs2.modular.shell.base.BaseMediator;
 	import hu.vizoli.examples.robotlegs2.modular.shell.events.ModuleInitializationEvent;
 	import hu.vizoli.examples.robotlegs2.modular.shell.model.events.ModuleModelEvent;
 	
@@ -43,7 +45,10 @@ package hu.vizoli.examples.robotlegs2.modular.shell.view
 				case ModuleModelEvent.LOADED:
 					this.view.addChild( e.module );
 					
-					this.dispatch( new Event( "shellE" ) );
+					var event:LogEvent = new LogEvent( LogEvent.LOG );
+					event.message = DisplayObject(e.module).toString() + " " + ModuleModelEvent.LOADED;
+					
+					this.dispatch( event );
 				break;
 				
 				default:

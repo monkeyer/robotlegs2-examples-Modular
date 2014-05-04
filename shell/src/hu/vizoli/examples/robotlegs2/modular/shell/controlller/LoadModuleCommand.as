@@ -1,6 +1,6 @@
 package hu.vizoli.examples.robotlegs2.modular.shell.controlller 
 {
-	import hu.vizoli.examples.robotlegs2.modular.shell.base.BaseCommand;
+	import base.BaseCommand;
 	import hu.vizoli.examples.robotlegs2.modular.shell.service.ModuleService;
 	
 	/**

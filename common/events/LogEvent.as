@@ -1,15 +1,17 @@
-package hu.vizoli.examples.robotlegs2.modular.modules.logger.base
+package events
 {
-	import flash.display.Sprite;
-	import hu.vizoli.examples.robotlegs2.modular.modules.logger.base.interfaces.IBaseView;
+	import flash.events.Event;
 	
 	/**
-	 * BaseView
+	 * LogEvent
 	 * 
 	 * @author vizoli
 	 */
-	public class BaseView extends Sprite implements IBaseView
+	public class LogEvent extends Event
 	{
+		public static const LOG:String = "LOG";
+		
+		public var message:String;
 		
 		//--------------------------------------------------------------------------
 		//
@@ -18,27 +20,32 @@ package hu.vizoli.examples.robotlegs2.modular.modules.logger.base
 		//--------------------------------------------------------------------------
 		
 		/**
-		 * BaseView
+		 * LogEvent
+		 * 
+		 * @param 	type
 		 */
-		public function BaseView() 
+		public function LogEvent( type:String )
 		{
-			super();
+			super( type );
 		}
 		
 		//--------------------------------------------------------------------------
 		//
-		//  Public methods
+		//  Overriden methods
 		//
 		//--------------------------------------------------------------------------
 		
 		/**
-		 * Create the children
+		 * @inheritDoc
 		 */
-		public function createChildren():void
+		override public function clone( ):Event
 		{
+			var event:LogEvent = new LogEvent( type );
+			event.message = message;
 			
+			return event;
 		}
 		
 	}
-
+	
 }

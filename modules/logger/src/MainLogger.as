@@ -1,5 +1,6 @@
 package 
 {
+	import base.BaseMain;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import hu.vizoli.examples.robotlegs2.modular.modules.logger.config.CommandConfig;
@@ -15,9 +16,12 @@ package
 	import robotlegs.bender.framework.impl.Context;
 	
 	/**
-	 * ...
-	 * @author vizoli
+	 * Robotlegs2 Example - Modular
+	 * Logger module, it receives and show messages. 
+	 * 
+	 * @author vizoli ( Name: Zoltan Viski, Site: vizoli.hu, Github: https://github.com/zoltanviski )
 	 */
+	[ SWF( width='820', height='620', backgroundColor='0x444444', framerate='30' ) ]
 	public class MainLogger extends Sprite 
 	{
 		private var _context:IContext;
@@ -66,7 +70,6 @@ package
 		 */
 		private function createChildren( ):void 
 		{
-			trace("--- logger:createChildren")
 			var logView:LogView = new LogView();
 			this.addChild ( logView );
 		}

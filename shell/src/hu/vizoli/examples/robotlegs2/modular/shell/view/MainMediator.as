@@ -1,8 +1,8 @@
 package hu.vizoli.examples.robotlegs2.modular.shell.view 
 {
+	import base.BaseMediator;
 	import flash.events.Event;
 	import flash.events.KeyboardEvent;
-	import hu.vizoli.examples.robotlegs2.modular.shell.base.BaseMediator;
 	
 	/**
 	 * MainMediator

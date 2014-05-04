@@ -1,4 +1,4 @@
-package hu.vizoli.examples.robotlegs2.modular.shell.base.interfaces 
+package base.interfaces 
 {
 	/**
 	 * IBaseView

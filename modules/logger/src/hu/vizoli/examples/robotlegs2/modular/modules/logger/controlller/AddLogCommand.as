@@ -1,7 +1,9 @@
 package hu.vizoli.examples.robotlegs2.modular.modules.logger.controlller 
 {
+	import base.BaseCommand;
+	import events.LogEvent;
 	import flash.events.KeyboardEvent;
-	import hu.vizoli.examples.robotlegs2.modular.modules.logger.base.BaseCommand;
+	import hu.vizoli.examples.robotlegs2.modular.modules.logger.controlller.events.AddLogCommandEvent;
 	
 	/**
 	 * AddLogCommand
@@ -10,6 +12,9 @@ package hu.vizoli.examples.robotlegs2.modular.modules.logger.controlller
 	 */
 	public class AddLogCommand extends BaseCommand
 	{
+		[Inject]
+		public var event:LogEvent;
+		
 		//--------------------------------------------------------------------------
 		//
 		//  Overriden methods
@@ -21,7 +26,9 @@ package hu.vizoli.examples.robotlegs2.modular.modules.logger.controlller
 		 */
 		override public function execute():void
 		{
-			trace( "------------------- NAHAT 11111" );
+			var addLogCommandEvent:AddLogCommandEvent = new AddLogCommandEvent( AddLogCommandEvent.LOG );
+			addLogCommandEvent.message = this.event.message;
+			this.eventDispatcher.dispatchEvent( addLogCommandEvent );
 		}
 
 	}

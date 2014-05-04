@@ -25,7 +25,7 @@ package hu.vizoli.examples.robotlegs2.modular.modules.logger.config
 		 */
 		public function configure():void
 		{
-			this.commandMap.map( "shellE" ).toCommand( AddLogCommand );
+			this.commandMap.map( "LOG" ).toCommand( AddLogCommand );
 		}
 		
 	}

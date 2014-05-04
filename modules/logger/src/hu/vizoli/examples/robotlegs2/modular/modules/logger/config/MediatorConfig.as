@@ -1,5 +1,7 @@
 package hu.vizoli.examples.robotlegs2.modular.modules.logger.config 
 {
+	import hu.vizoli.examples.robotlegs2.modular.modules.logger.view.LogMediator;
+	import hu.vizoli.examples.robotlegs2.modular.modules.logger.view.LogView;
 	import robotlegs.bender.extensions.mediatorMap.api.IMediatorMap;
 	import robotlegs.bender.framework.api.IConfig;
 	
@@ -24,7 +26,7 @@ package hu.vizoli.examples.robotlegs2.modular.modules.logger.config
 		 */
 		public function configure():void
 		{
-			//this.mediatorMap.map( GameLayoutView ).toMediator( GameLayoutMediator );
+			this.mediatorMap.map( LogView ).toMediator( LogMediator );
 		}
 		
 	}

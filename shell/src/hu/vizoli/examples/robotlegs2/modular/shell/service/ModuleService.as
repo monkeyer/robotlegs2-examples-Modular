@@ -1,11 +1,11 @@
 package hu.vizoli.examples.robotlegs2.modular.shell.service 
 {
+	import base.BaseLoaderService;
 	import flash.display.Loader;
 	import flash.events.Event;
 	import flash.net.URLRequest;
 	import flash.system.ApplicationDomain;
 	import flash.system.LoaderContext;
-	import hu.vizoli.examples.robotlegs2.modular.shell.base.BaseLoaderService;
 	import hu.vizoli.examples.robotlegs2.modular.shell.model.ModuleModel;
 	
 	/**

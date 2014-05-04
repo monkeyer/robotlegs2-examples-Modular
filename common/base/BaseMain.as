@@ -1,4 +1,4 @@
-package hu.vizoli.examples.robotlegs2.modular.shell.base 
+package base 
 {
 	import flash.display.Sprite;
 	import flash.events.Event;
