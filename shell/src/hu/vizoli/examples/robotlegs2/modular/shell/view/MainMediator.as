@@ -26,8 +26,6 @@ package hu.vizoli.examples.robotlegs2.modular.shell.view
 		override public function initialize():void
 		{
 			this.view.createChildren();
-			
-			
 		}
 		
 		//--------------------------------------------------------------------------
@@ -43,7 +41,7 @@ package hu.vizoli.examples.robotlegs2.modular.shell.view
 		 */
 		private function viewEventListeners( e:Event ):void
 		{
-			this.dispatch( new Event( "shellE" ) );
+			
 		}
 		
 	}

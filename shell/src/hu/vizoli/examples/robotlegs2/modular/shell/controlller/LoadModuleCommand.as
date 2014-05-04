@@ -20,7 +20,7 @@ package hu.vizoli.examples.robotlegs2.modular.shell.controlller
 		//--------------------------------------------------------------------------
 		
 		/**
-		 * Override the execute
+		 * @inheritDoc
 		 */
 		override public function execute():void
 		{

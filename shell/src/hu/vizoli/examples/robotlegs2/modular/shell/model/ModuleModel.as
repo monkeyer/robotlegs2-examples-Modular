@@ -2,6 +2,8 @@ package hu.vizoli.examples.robotlegs2.modular.shell.model
 {
 	import flash.display.DisplayObject;
 	import hu.vizoli.examples.robotlegs2.modular.shell.base.BaseModel;
+	import hu.vizoli.examples.robotlegs2.modular.shell.config.ModuleConfig;
+	import hu.vizoli.examples.robotlegs2.modular.shell.model.events.ModuleModelEvent;
 	
 	/**
 	 * ModuleModel
@@ -18,7 +20,10 @@ package hu.vizoli.examples.robotlegs2.modular.shell.model
 		
 		public function addModule( module:DisplayObject ):void
 		{
-			trace( "addModule: ", module );
+			var event:ModuleModelEvent = new ModuleModelEvent( ModuleModelEvent.LOADED );
+			event.module = module;
+			
+			this.dispatch( event );
 		}
 		
 	}

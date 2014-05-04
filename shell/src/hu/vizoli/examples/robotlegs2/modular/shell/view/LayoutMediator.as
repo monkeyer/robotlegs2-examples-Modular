@@ -1,7 +1,9 @@
 package hu.vizoli.examples.robotlegs2.modular.shell.view 
 {
+	import flash.events.Event;
 	import hu.vizoli.examples.robotlegs2.modular.shell.base.BaseMediator;
 	import hu.vizoli.examples.robotlegs2.modular.shell.events.ModuleInitializationEvent;
+	import hu.vizoli.examples.robotlegs2.modular.shell.model.events.ModuleModelEvent;
 	
 	/**
 	 * LayoutMediator
@@ -24,7 +26,30 @@ package hu.vizoli.examples.robotlegs2.modular.shell.view
 		 */
 		override public function initialize():void
 		{
+			this.addContextListener( ModuleModelEvent.LOADED, this.moduleModelEventHandler );
+			
 			this.dispatch( new ModuleInitializationEvent( ModuleInitializationEvent.LOGGER ) );
+		}
+		
+		/**
+		 * Event handler of ModuleModel
+		 * 
+		 * @param	e
+		 */
+		private function moduleModelEventHandler( e:ModuleModelEvent ):void 
+		{
+			switch ( e.type )
+			{
+				case ModuleModelEvent.LOADED:
+					this.view.addChild( e.module );
+					
+					this.dispatch( new Event( "shellE" ) );
+				break;
+				
+				default:
+					
+				break;
+			}
 		}
 		
 	}

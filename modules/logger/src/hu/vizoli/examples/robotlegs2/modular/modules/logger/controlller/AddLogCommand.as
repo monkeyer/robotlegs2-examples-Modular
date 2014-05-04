@@ -21,7 +21,7 @@ package hu.vizoli.examples.robotlegs2.modular.modules.logger.controlller
 		 */
 		override public function execute():void
 		{
-			trace( "------------------- NAHAT 1" );
+			trace( "------------------- NAHAT 11111" );
 		}
 
 	}
