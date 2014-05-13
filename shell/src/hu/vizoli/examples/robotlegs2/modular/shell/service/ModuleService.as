@@ -53,10 +53,8 @@ package hu.vizoli.examples.robotlegs2.modular.shell.service
 				break;
 			}
 			
-            //var myGreeter:Class = ApplicationDomain.currentDomain.getDefinition("Greeter") as Class; 
-            //var myGreeter:Greeter = Greeter(event.target.content); 
-            //var message:String = myGreeter.welcome("Tommy"); 
-            //trace(message); // Hello, Tommy 
+			var myGreeter:Class = ApplicationDomain.currentDomain.getDefinition("MainLogger") as Class; 
+			trace( myGreeter(e.target.content).moduleName ); 
         } 
 		
 	}

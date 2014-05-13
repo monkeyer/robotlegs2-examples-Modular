@@ -1,6 +1,8 @@
 package hu.vizoli.examples.robotlegs2.modular.modules.logger.config 
 {
+	import events.LogEvent;
 	import hu.vizoli.examples.robotlegs2.modular.modules.logger.controlller.AddLogCommand;
+	import hu.vizoli.examples.robotlegs2.modular.modules.logger.controlller.events.AddLogCommandEvent;
 	import robotlegs.bender.extensions.eventCommandMap.api.IEventCommandMap;
 	import robotlegs.bender.framework.api.IConfig;
 	
@@ -25,7 +27,7 @@ package hu.vizoli.examples.robotlegs2.modular.modules.logger.config
 		 */
 		public function configure():void
 		{
-			this.commandMap.map( "LOG" ).toCommand( AddLogCommand );
+			this.commandMap.map( "LOG", LogEvent ).toCommand( AddLogCommand );
 		}
 		
 	}

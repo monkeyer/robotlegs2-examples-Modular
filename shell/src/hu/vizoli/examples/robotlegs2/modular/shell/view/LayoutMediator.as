@@ -4,6 +4,7 @@ package hu.vizoli.examples.robotlegs2.modular.shell.view
 	import events.LogEvent;
 	import flash.display.DisplayObject;
 	import flash.events.Event;
+	import flash.system.ApplicationDomain;
 	import hu.vizoli.examples.robotlegs2.modular.shell.events.ModuleInitializationEvent;
 	import hu.vizoli.examples.robotlegs2.modular.shell.model.events.ModuleModelEvent;
 	

@@ -1,6 +1,7 @@
 package 
 {
 	import base.BaseMain;
+	import base.BaseModuleMain;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import hu.vizoli.examples.robotlegs2.modular.modules.logger.config.CommandConfig;
@@ -22,22 +23,18 @@ package
 	 * @author vizoli ( Name: Zoltan Viski, Site: vizoli.hu, Github: https://github.com/zoltanviski )
 	 */
 	[ SWF( width='820', height='620', backgroundColor='0x444444', framerate='30' ) ]
-	public class MainLogger extends Sprite 
+	public class MainLogger extends BaseModuleMain 
 	{
-		private var _context:IContext;
 		
 		public function MainLogger( ):void 
 		{
-			this.setupContext();
-			
-			if ( this.stage ) this.init( );
-			else addEventListener( Event.ADDED_TO_STAGE, this.init );
+			this._moduleName = "LoggerModule";
 		}
 		
 		/**
 		 * Setup the context
 		 */
-		private function setupContext( ):void 
+		override protected function setupContext( ):void 
 		{
 			this._context = new Context()
 				.install( 	MVCSBundle )
@@ -56,7 +53,7 @@ package
 		 * 
 		 * @param	e
 		 */
-		private function init( e:Event = null ):void 
+		override protected function init( e:Event = null ):void 
 		{
 			this.removeEventListener( Event.ADDED_TO_STAGE, this.init );
 			
@@ -68,7 +65,7 @@ package
 		 * 
 		 * @param	e
 		 */
-		private function createChildren( ):void 
+		override public function createChildren( ):void 
 		{
 			var logView:LogView = new LogView();
 			this.addChild ( logView );
