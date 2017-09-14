@@ -1,0 +1,32 @@
+package hu.vizoli.examples.robotlegs2.modular.shell.controlller 
+{
+	import base.BaseCommand;
+	import hu.vizoli.examples.robotlegs2.modular.shell.service.ModuleService;
+	
+	/**
+	 * LoadModuleCommand
+	 * 
+	 * @author vizoli
+	 */
+	public class LoadModuleCommand extends BaseCommand
+	{
+		[Inject]
+		public var moduleService:ModuleService;
+		
+		//--------------------------------------------------------------------------
+		//
+		//  Overriden methods
+		//
+		//--------------------------------------------------------------------------
+		
+		/**
+		 * @inheritDoc
+		 */
+		override public function execute():void
+		{
+			this.moduleService.load( "MainLogger.swf" );
+		}
+
+	}
+
+}
